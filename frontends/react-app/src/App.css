@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway:400,700,900');
+body {
+  background-color: #dfe8ee;
+  font-family: 'Raleway', sans-serif;
+}
+.searchbox {
+  width: 300px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.searchbox input {
+  width: 210px;
+}
+.searchbox button {
+  width: 80px;
+}

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Photo } from '../../../src/modules/photos/photo.entity';
 import { PhotosGrid } from './components/PhotosGrid';
-
+import './App.css';
 type AppState = {
   photos: Photo[];
   searchInput: string;
@@ -39,8 +39,10 @@ class App extends Component<{}, AppState> {
   render(): React.ReactNode {
     return (
       <div>
-        <input type="text" onChange={this.updateInput} />
-        <button onClick={this.searchByTags}> refresh</button>
+        <div className="searchbox">
+          <input type="text" onChange={this.updateInput} />
+          <button onClick={this.searchByTags}> refresh</button>
+        </div>
         <PhotosGrid photos={this.state.photos}></PhotosGrid>
       </div>
     );

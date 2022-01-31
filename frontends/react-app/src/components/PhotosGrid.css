@@ -12,6 +12,23 @@ img {
   display: inline-block;
   margin-bottom: 16px;
   width: 100%;
+
+  position: relative;
+}
+.masonry .mItem img {
+  box-shadow: 0px 3px 5px #aaa;
+
+  border-radius: 5px;
+  border: 1px solid #bec6cc;
+}
+.masonry .mItem span {
+  background: rgba(255, 255, 255, 0.5);
+  padding: 10px;
+  margin: 0 5px;
+  display: block;
+  bottom: 10px;
+  position: absolute;
+  font-weight: bold;
 }
 
 @media (max-width: 1199px) {
