@@ -1,13 +1,12 @@
-import express, { Application, Request, Response } from 'express';
+import express from 'express';
+import { photosRouter } from './modules/photos/photo.route';
 
-const app: Application = express();
+const app: express.Application = express();
 
 const port = 3000;
 
-app.get('/api', (req: Request, res: Response) => {
-  res.send('Hello Api');
-});
+app.use(photosRouter);
 
 app.listen(port, function () {
-  console.log(`App is listening on port ${port} !`);
+  console.log(`API is listening on port ${port} !`);
 });
