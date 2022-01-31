@@ -3,17 +3,35 @@ import './App.css';
 import { Photo } from '../../../src/modules/photos/photo.entity';
 import { PhotosGrid } from './components/photosGrid';
 
-type AppState = { photos: Photo[] };
+type AppState = {
+  photos: Photo[];
+  searchInput: string;
+};
+
 class App extends Component<{}, AppState> {
   constructor(props: any) {
     super(props);
     this.state = {
       photos: [],
+      searchInput: '',
     };
+    this.searchByTags = this.searchByTags.bind(this);
+    this.updateInput = this.updateInput.bind(this);
   }
 
   componentDidMount() {
-    fetch('http://localhost:3000/photos')
+    this.getPhotos();
+  }
+  updateInput(e: any) {
+    this.setState({ searchInput: e.target.value });
+  }
+  searchByTags() {
+    this.getPhotos(this.state.searchInput);
+    this.setState({ searchInput: '' });
+  }
+
+  getPhotos(tags = '') {
+    fetch(`http://localhost:3000/photos/${tags}`)
       .then((res) => {
         return res.json() as Promise<Photo[]>;
       })
@@ -21,9 +39,11 @@ class App extends Component<{}, AppState> {
   }
   render(): React.ReactNode {
     return (
-      <>
+      <div>
+        <input type="text" onChange={this.updateInput} />
+        <button onClick={this.searchByTags}> refresh</button>
         <PhotosGrid photos={this.state.photos}></PhotosGrid>
-      </>
+      </div>
     );
   }
 }
