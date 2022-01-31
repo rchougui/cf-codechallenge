@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import './App.css';
 import { Photo } from '../../../src/modules/photos/photo.entity';
-import { PhotosGrid } from './components/photosGrid';
+import { PhotosGrid } from './components/PhotosGrid';
 
 type AppState = {
   photos: Photo[];
