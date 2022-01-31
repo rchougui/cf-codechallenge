@@ -1,17 +1,15 @@
-import express, { Application, NextFunction, Request, Response } from 'express';
+import express from 'express';
+import { corsAllowAll } from './modules/shared/corsallow';
 import { photosRouter } from './modules/photos/photo.route';
 
 const app: express.Application = express();
 
-const port = 3000;
+const port = 1204;
 
-app.use((req: Request, res: Response, next: NextFunction) => {
-  res.header('Access-Control-Allow-Origin', '*');
-  res.header('Access-Control-Allow-Headers', '*');
-  res.header('Access-Control-Allow-Methods', 'GET, OPTIONS');
-  next();
-});
+app.use(corsAllowAll);
+
 app.use(photosRouter);
+
 app.listen(port, function () {
   console.log(`API is listening on port ${port} !`);
 });

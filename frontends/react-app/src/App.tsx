@@ -31,7 +31,7 @@ class App extends Component<{}, AppState> {
   }
 
   getPhotos(tags = '') {
-    fetch(`http://localhost:3000/photos/${tags}`)
+    fetch(`http://localhost:1204/photos/${tags}`)
       .then((res) => {
         return res.json() as Promise<Photo[]>;
       })
