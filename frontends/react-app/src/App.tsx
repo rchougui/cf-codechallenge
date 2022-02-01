@@ -9,7 +9,7 @@ type AppState = {
   isLoading: boolean;
 };
 
-const API_URL = 'http://localhost:1204/photos/';
+const API_URL = window.location.protocol + '//' + window.location.hostname + ':1204/photos/';
 
 class App extends Component<{}, AppState> {
   constructor(props: any) {
