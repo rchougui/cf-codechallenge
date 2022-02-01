@@ -1,0 +1,10 @@
+
+<div class="loader" *ngIf="!photos">Loading...</div>
+<div class="masonry" *ngIf="photos">
+    <div class="mItem" *ngFor="let photo of photos">
+        <a href="{{photo.url}}" target="_blank" rel="noreferrer">
+          <span>{{ (photo.title.length>50)? (photo.title | slice:0:50)+'..':(photo.title)}}</span>
+          <img src={{photo.thumburl}} alt={{photo.title}}>
+        </a>
+      </div>
+</div>
