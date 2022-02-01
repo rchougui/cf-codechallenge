@@ -1,11 +1,14 @@
-img {
+.masonry img {
   width: 100%;
 }
-
+.masonry a {
+  color: black;
+}
 .masonry {
-  /*column-count: 4;*/
   column-count: 4;
   column-gap: 16px;
+  max-width: 80%;
+  margin: 0 auto;
 }
 
 .masonry .mItem {

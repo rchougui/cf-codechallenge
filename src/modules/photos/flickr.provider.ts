@@ -21,7 +21,6 @@ export class FlickrProvider implements PhotosProvider {
   async getPhotosByTag(tags: string): Promise<Photo[]> {
     try {
       const flickrData = await axios.get(`${this.flickrUrl}&tags=${tags}`);
-      console.log(flickrData);
       const photos = this.flickrToPhotoMapper(flickrData.data);
       return photos;
     } catch (error) {

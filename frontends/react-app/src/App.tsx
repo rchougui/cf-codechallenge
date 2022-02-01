@@ -2,9 +2,10 @@ import React, { Component } from 'react';
 import { Photo } from '../../../src/modules/photos/photo.entity';
 import { PhotosGrid } from './components/PhotosGrid';
 import './App.css';
+import { SearchBox } from './components/SearchBox';
 type AppState = {
   photos: Photo[];
-  searchInput: string;
+  isLoading: boolean;
 };
 
 class App extends Component<{}, AppState> {
@@ -12,39 +13,39 @@ class App extends Component<{}, AppState> {
     super(props);
     this.state = {
       photos: [],
-      searchInput: '',
+      isLoading: false,
     };
     this.searchByTags = this.searchByTags.bind(this);
-    this.updateInput = this.updateInput.bind(this);
   }
 
   componentDidMount() {
     this.getPhotos();
   }
-  updateInput(e: any) {
-    this.setState({ searchInput: e.target.value });
-  }
-  searchByTags() {
-    this.getPhotos(this.state.searchInput);
-    this.setState({ searchInput: '' });
+
+  searchByTags(tags: string) {
+    this.getPhotos(tags);
   }
 
   getPhotos(tags = '') {
+    this.setState({ isLoading: true });
     fetch(`http://localhost:1204/photos/${tags}`)
-      .then((res) => {
-        return res.json() as Promise<Photo[]>;
+      .then((res) => res.json() as Promise<Photo[]>)
+      .then((photos) => {
+        this.setState({ isLoading: false, photos });
       })
-      .then((photos) => this.setState({ photos }));
+      .catch((e) => {
+        console.log(e);
+        this.setState({ isLoading: false });
+      });
   }
   render(): React.ReactNode {
+    const loader = this.state.isLoading ? <div className="loader">Loading...</div> : '';
     return (
-      <div>
-        <div className="searchbox">
-          <input type="text" onChange={this.updateInput} />
-          <button onClick={this.searchByTags}> refresh</button>
-        </div>
-        <PhotosGrid photos={this.state.photos}></PhotosGrid>
-      </div>
+      <>
+        <SearchBox searchCallback={this.searchByTags} />
+        {loader}
+        <PhotosGrid photos={this.state.photos} />
+      </>
     );
   }
 }

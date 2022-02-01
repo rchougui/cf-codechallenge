@@ -7,8 +7,11 @@ interface PhotoProps {
 export const PhotosGrid = (props: PhotoProps) => {
   const images = props.photos.map((photo: Photo, i: number) => {
     return (
-      <div className="mItem">
-        <img src={photo.thumburl} alt={photo.title} key={photo.title + i}></img>
+      <div className="mItem" key={photo.title + i}>
+        <a href={photo.url} target="_blank" rel="noreferrer">
+          <span>{photo.title}</span>
+          <img src={photo.thumburl} alt={photo.title}></img>
+        </a>
       </div>
     );
   });
