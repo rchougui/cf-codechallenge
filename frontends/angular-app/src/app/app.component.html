@@ -1,0 +1,5 @@
+
+<div id="app">
+<app-searchbox (searchCallback)="searchByTag($event)" ></app-searchbox>
+<app-photosgrid [photos]="(photos$ | async)" ></app-photosgrid>
+</div>

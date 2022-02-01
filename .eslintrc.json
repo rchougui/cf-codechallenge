@@ -16,5 +16,7 @@
         "@typescript-eslint"
     ],
     "rules": {
+        "no-useless-constructor" :"off",
+        "no-empty-function": "off"
     }
 }
