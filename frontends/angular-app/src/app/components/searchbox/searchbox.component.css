@@ -1,0 +1,51 @@
+h1 {
+  text-align: center;
+}
+.blue {
+  color: #0062dd;
+}
+.purple {
+  color: #ff0084;
+}
+.slim {
+  font-weight: normal;
+}
+.searchbox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px 0;
+  margin-bottom: 20px;
+  background-color: #eef7fd;
+}
+
+.searchbox .input,
+.searchbox .submit {
+  display: inline-block;
+  padding: 10px 15px;
+  font-size: 16px;
+  border-radius: 0;
+
+  -webkit-appearance: none;
+}
+
+.searchbox .input {
+  border: 1px solid #bec6cc;
+  margin: 5px 0 5px 5px;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  min-width: 500px;
+}
+
+.searchbox .submit {
+  background-color: #0062dd;
+  border: 1px solid transparent;
+
+  border-top-right-radius: 5px;
+  color: white;
+  border-bottom-right-radius: 5px;
+}
+
+.searchbox .submit::-moz-focus-inner {
+  border: 0;
+}

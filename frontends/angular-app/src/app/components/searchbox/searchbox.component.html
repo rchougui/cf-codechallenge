@@ -1,0 +1,19 @@
+<h1>
+    <span class="blue">Flick</span>
+    <span class="purple">r</span>
+    <span class="slim"> tag search</span>
+  </h1>
+
+<div class="searchbox">
+  
+    <form action="" (submit)="onSubmit(search.value)">
+      <input
+        class="input"
+        name="search"
+        type="text"
+        #search
+        placeholder="Search flickr by tags, comma separated"
+      />
+      <input class="submit" type="submit" value="Search" />
+    </form>
+  </div>
