@@ -23,6 +23,7 @@ class App extends Component<{}, AppState> {
   }
 
   searchByTags(tags: string) {
+    this.setState({ photos: [] });
     this.getPhotos(tags);
   }
 
