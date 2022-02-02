@@ -1,7 +1,7 @@
 import express from 'express';
 import { corsAllowAll } from './modules/shared/corsallow';
 import { photosRouter } from './modules/photos/photo.route';
-import path from 'path/posix';
+import * as path from 'path';
 
 const app: express.Application = express();
 

@@ -13,7 +13,7 @@
     "start": "npm-run-all -l -c --aggregate-output --parallel \"start-*\"",
     "build": "rimraf dist && npm-run-all -l -c --aggregate-output --parallel \"build-*\"",
     "launch-build": "node dist/app.js",
-    "deploy":"scp -rp dist/* root@45.77.126.111:~/crewfire"
+    "deploy":"scp -rp dist/* package.json package-lock.json root@45.77.126.111:~/crewfire"
   },
   "repository": {
     "type": "git",
